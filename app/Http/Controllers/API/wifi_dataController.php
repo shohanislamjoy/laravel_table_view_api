@@ -77,11 +77,20 @@ class wifi_dataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(wifi_data $wifi_data)
+
+    public function destroy(string $id)
     {
         //
-        $wifi_data ->delete();
-        return response ()->json(['message'=>'wifi_data deleted successfully']);
+        wifi_data::destroy($id);
+        // $wifi_data ->delete();
+         return response ()->json(['message'=>'wifi_data deleted successfully']) ;
+        // return response()->json($wifi_data);
 
     }
+
+
+
+
+
+
 }
