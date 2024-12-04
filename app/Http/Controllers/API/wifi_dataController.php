@@ -56,21 +56,29 @@ class wifi_dataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, wifi_data $wifi_data)
+    public function update(Request $request, $id)
     {
-        //
-        $validation = $request -> validate([
-           'date' => 'required|string',
+        // Find the record by ID
+        $wifi_data = wifi_data::find($id);
+
+        if (!$wifi_data) {
+            return response()->json(['message' => 'Record not found'], 404);
+        }
+
+        // Validate incoming data
+        $validation = $request->validate([
+            'date' => 'required|string',
             'trade_code' => 'required|string',
             'high' => 'required|numeric',
             'low' => 'required|numeric',
             'open' => 'required|numeric',
             'close' => 'required|numeric',
             'volume' => 'required|numeric',
-
         ]);
 
-        $wifi_data -> update($validation);
+        // Update the data
+        $wifi_data->update($validation);
+
         return new wifi_dataResource($wifi_data);
     }
 
