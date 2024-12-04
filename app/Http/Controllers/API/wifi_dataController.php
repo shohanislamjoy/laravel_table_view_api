@@ -29,13 +29,13 @@ class wifi_dataController extends Controller
         //
          //
          $validation = $request -> validate([
-            'date'=>'required|string',
-            'trade_code'=>'required|string',
-            'high'=>'required|string',
-            'low'=>'required|string',
-            'open'=>'required|string',
-            'close'=>'required|string',
-            'volume'=>'required|string',
+         'date' => 'required|string',
+            'trade_code' => 'required|string',
+            'high' => 'required|numeric',
+            'low' => 'required|numeric',
+            'open' => 'required|numeric',
+            'close' => 'required|numeric',
+            'volume' => 'required|numeric',
 
         ]);
 
@@ -60,13 +60,13 @@ class wifi_dataController extends Controller
     {
         //
         $validation = $request -> validate([
-            'date'=>'required|string',
-            'trade_code'=>'required|string',
-            'high'=>'required|string',
-            'low'=>'required|string',
-            'open'=>'required|string',
-            'close'=>'required|string',
-            'volume'=>'required|string',
+           'date' => 'required|string',
+            'trade_code' => 'required|string',
+            'high' => 'required|numeric',
+            'low' => 'required|numeric',
+            'open' => 'required|numeric',
+            'close' => 'required|numeric',
+            'volume' => 'required|numeric',
 
         ]);
 
